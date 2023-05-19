@@ -42,7 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
             editor.putString("password", password);
             editor.apply();
             Toast.makeText(SignUpActivity.this, "Sign Up Successful", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+            Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
             startActivity(intent);
         }
       }
