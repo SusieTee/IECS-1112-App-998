@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".OrderActivity">
 
+    <TextView
+        android:id="@+id/textViewSet2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#6750A3"
+        android:text="單點"
+        android:textAlignment="center"
+        android:textColor="#FBFBFB"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_foods" />
+
     <Switch
         android:id="@+id/SwitchAllFavorite"
         android:layout_width="56dp"
@@ -44,11 +58,17 @@
 
     <TextView
         android:id="@+id/textViewSet"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:background="#6750A3"
         android:text="套餐系列"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="31dp" />
+        android:textAlignment="center"
+        android:textColor="#FBFBFB"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
@@ -63,13 +83,12 @@
     <ListView
         android:id="@+id/lv_foods"
         android:layout_width="0dp"
-        android:layout_height="634dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/StarOn" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewSet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
