@@ -41,10 +41,6 @@ public class SignInActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
 
-        button.setVisibility(View.VISIBLE);
-        button2.setVisibility(View.VISIBLE);
-        button3.setVisibility(View.VISIBLE);
-
         if (v.getId() == R.id.button) {
           Intent intent = new Intent(SignInActivity.this, MainActivity.class);
           startActivity(intent);
@@ -71,6 +67,9 @@ public class SignInActivity extends AppCompatActivity {
           String sharedUsername = sharedPreferences.getString("username", "");
           String sharedPassword = sharedPreferences.getString("password", "");
           if (username.equals(sharedUsername) && password.equals(sharedPassword)) {
+            button.setVisibility(View.VISIBLE);
+            button2.setVisibility(View.VISIBLE);
+            button3.setVisibility(View.VISIBLE);
             sharedPreferences.edit().putBoolean("signed_in", true).apply();
             Intent intent = new Intent(SignInActivity.this, OrderActivity.class);//登入後跳到後面的activity
             startActivity(intent);
@@ -85,5 +84,8 @@ public class SignInActivity extends AppCompatActivity {
     };
     btnSignIn.setOnClickListener(onClickListener);
     btnSignUp.setOnClickListener(onClickListener);
+    button.setOnClickListener(onClickListener);
+    button2.setOnClickListener(onClickListener);
+    button3.setOnClickListener(onClickListener);
   }
 }

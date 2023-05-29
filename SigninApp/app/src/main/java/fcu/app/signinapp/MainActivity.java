@@ -18,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
-    boolean isSignedIn = sharedPreferences.getBoolean("signed_in", false);
-    if (isSignedIn) {
-      Intent intent = new Intent(MainActivity.this, SignInActivity.class);
-      startActivity(intent);
-    }
+    //SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
+    //boolean isSignedIn = sharedPreferences.getBoolean("signed_in", false);
+    //if (isSignedIn) {
+    //  Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+    //  startActivity(intent);
+    //}
 
     btnSignOut = findViewById(R.id.btn_signout);
     View.OnClickListener onClickListener = new View.OnClickListener() {
