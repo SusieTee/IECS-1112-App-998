@@ -20,8 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/btn_star_big_off"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="169dp" />
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="6dp" />
 
     <ImageView
         android:id="@+id/StarOn"
@@ -38,16 +38,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/btn_star_big_on"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="169dp" />
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="6dp" />
 
     <TextView
         android:id="@+id/textViewSet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="套餐系列"
-        tools:layout_editor_absoluteX="177dp"
-        tools:layout_editor_absoluteY="74dp" />
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="31dp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -57,5 +57,16 @@
         android:text="顯示全部"
         app:layout_constraintEnd_toStartOf="@+id/SwitchAllFavorite"
         tools:layout_editor_absoluteY="31dp" />
+
+    <ListView
+        android:layout_width="0dp"
+        android:layout_height="634dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/StarOn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
