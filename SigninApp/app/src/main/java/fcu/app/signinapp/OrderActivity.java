@@ -22,9 +22,9 @@ public class OrderActivity extends AppCompatActivity {
         lvFoods = findViewById(R.id.lv_foods);
 
         List<FoodItem> lsFoods = new ArrayList<FoodItem>();
-        lsFoods.add(new FoodItem(R.drawable.點餐預覽,"1號餐",110));
-        lsFoods.add(new FoodItem(R.drawable.點餐預覽,"2號餐",150));
-        lsFoods.add(new FoodItem(R.drawable.點餐預覽,"3號餐",90));
+        lsFoods.add(new FoodItem(R.drawable.preview,"1號餐",110));
+        lsFoods.add(new FoodItem(R.drawable.preview,"2號餐",150));
+        lsFoods.add(new FoodItem(R.drawable.preview,"3號餐",90));
 
         ListViewAdapter adapter = new ListViewAdapter(this,lsFoods);
         lvFoods.setAdapter(adapter);

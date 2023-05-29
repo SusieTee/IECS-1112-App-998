@@ -33,6 +33,7 @@
         android:layout_width="241dp"
         android:layout_height="106dp"
         android:layout_weight="1"
-        app:srcCompat="@drawable/點餐預覽" />
+        android:baselineAlignBottom="false"
+        app:srcCompat="@drawable/preview" />
 
 </LinearLayout>
