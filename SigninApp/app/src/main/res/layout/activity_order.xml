@@ -10,10 +10,11 @@
         android:id="@+id/SwitchAllFavorite"
         android:layout_width="56dp"
         android:layout_height="35dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toStartOf="@+id/StarOn"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="20dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/Dish1StarOff"
@@ -53,10 +54,11 @@
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:text="顯示全部"
         app:layout_constraintEnd_toStartOf="@+id/SwitchAllFavorite"
-        tools:layout_editor_absoluteY="31dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/lv_foods"
