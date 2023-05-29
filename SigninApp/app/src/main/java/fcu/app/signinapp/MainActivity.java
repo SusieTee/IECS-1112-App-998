@@ -11,17 +11,33 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+  private Button btnSignOut;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    //SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
-   // boolean isSignedIn = sharedPreferences.getBoolean("signed_in", false);
-   // if (isSignedIn) {
-     // Intent intent = new Intent(MainActivity.this, SignInActivity.class);
-     // startActivity(intent);
-    //}
+    SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
+    boolean isSignedIn = sharedPreferences.getBoolean("signed_in", false);
+    if (isSignedIn) {
+      Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+      startActivity(intent);
+    }
+
+    btnSignOut = findViewById(R.id.btn_signout);
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+      public void onClick(View v) {
+        SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+        Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+        startActivity(intent);
+      }
+    };
+    btnSignOut.setOnClickListener(onClickListener);
+
     Toast.makeText(this, "onCreate method is called", Toast.LENGTH_SHORT).show();
   }
 

@@ -16,6 +16,9 @@ public class SignInActivity extends AppCompatActivity {
   private Button btnSignUp;
   private EditText etUsername;
   private EditText etPassword;
+  private Button button;
+  private Button button2;
+  private Button button3;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +29,35 @@ public class SignInActivity extends AppCompatActivity {
     btnSignUp = findViewById(R.id.btn_signup);
     etUsername = findViewById(R.id.et_signin_username);
     etPassword = findViewById(R.id.et_signin_password);
+    button = findViewById(R.id.button);
+    button2 = findViewById(R.id.button2);
+    button3 = findViewById(R.id.button3);
+
+    button.setVisibility(View.GONE);
+    button2.setVisibility(View.GONE);
+    button3.setVisibility(View.GONE);
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+
+        button.setVisibility(View.VISIBLE);
+        button2.setVisibility(View.VISIBLE);
+        button3.setVisibility(View.VISIBLE);
+
+        if (v.getId() == R.id.button) {
+          Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+          startActivity(intent);
+        }
+        else if (v.getId() == R.id.button2) {
+          Intent intent = new Intent(SignInActivity.this, OrderActivity.class);
+          startActivity(intent);
+        }
+        else if (v.getId() == R.id.button3) {
+          Intent intent = new Intent(SignInActivity.this, meal_list_item2.class);
+          startActivity(intent);
+        }
+
         if (v.getId() == R.id.btn_signin) {
           String username = etUsername.getText().toString();
           String password = etPassword.getText().toString();
