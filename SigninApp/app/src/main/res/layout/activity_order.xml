@@ -6,19 +6,71 @@
     android:layout_height="match_parent"
     tools:context=".OrderActivity">
 
-    <TextView
-        android:id="@+id/textViewSet2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#6750A3"
-        android:text="單點"
-        android:textAlignment="center"
-        android:textColor="#FBFBFB"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_foods" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-91dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewSet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:background="#6750A3"
+                android:text="套餐系列"
+                android:textAlignment="center"
+                android:textColor="#FBFBFB"
+                android:textSize="34sp" />
+
+            <ListView
+                android:id="@+id/lv_foods"
+                android:layout_width="wrap_content"
+                android:layout_height="500dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/textViewSet2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#6750A3"
+                android:text="單點"
+                android:textAlignment="center"
+                android:textColor="#FBFBFB"
+                android:textSize="34sp" />
+
+            <ListView
+                android:id="@+id/lv_foods_single"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/textViewSet3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#6750A3"
+                android:text="飲料"
+                android:textAlignment="center"
+                android:textColor="#FBFBFB"
+                android:textSize="34sp" />
+
+            <ListView
+                android:id="@+id/lv_foods_drinks"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <Switch
         android:id="@+id/SwitchAllFavorite"
@@ -57,20 +109,6 @@
         tools:layout_editor_absoluteY="6dp" />
 
     <TextView
-        android:id="@+id/textViewSet"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:background="#6750A3"
-        android:text="套餐系列"
-        android:textAlignment="center"
-        android:textColor="#FBFBFB"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -79,16 +117,5 @@
         android:text="顯示全部"
         app:layout_constraintEnd_toStartOf="@+id/SwitchAllFavorite"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ListView
-        android:id="@+id/lv_foods"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
