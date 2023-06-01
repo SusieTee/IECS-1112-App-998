@@ -6,11 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".OrderActivity">
 
+    <Switch
+        android:id="@+id/SwitchAllFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:text="顯示全部"
+        app:layout_constraintEnd_toStartOf="@+id/StarOn"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="我的最愛" />
+
+    <ImageView
+        android:id="@+id/StarOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="370dp"
+        android:layout_marginTop="20dp"
+        android:src="@android:drawable/btn_star_big_on"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-91dp">
+        android:layout_marginTop="52dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +42,6 @@
                 android:id="@+id/textViewSet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="72dp"
                 android:background="#6750A3"
                 android:text="套餐系列"
                 android:textAlignment="center"
@@ -71,51 +91,5 @@
 
         </LinearLayout>
     </ScrollView>
-
-    <Switch
-        android:id="@+id/SwitchAllFavorite"
-        android:layout_width="56dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/StarOn"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/Dish1StarOff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/btn_star_big_off"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="6dp" />
-
-    <ImageView
-        android:id="@+id/StarOn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:src="@android:drawable/btn_star_big_on"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/Dish1StarOn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/btn_star_big_on"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="6dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="8dp"
-        android:text="顯示全部"
-        app:layout_constraintEnd_toStartOf="@+id/SwitchAllFavorite"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
