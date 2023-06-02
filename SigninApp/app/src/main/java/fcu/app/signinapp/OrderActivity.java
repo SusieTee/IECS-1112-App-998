@@ -3,8 +3,10 @@ package fcu.app.signinapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
-
+import android.content.Intent; //跳轉
+import android.widget.AdapterView;//適配器
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,10 @@ public class OrderActivity extends AppCompatActivity {
     private ListView lvFoods;
     private ListView lvFoodsSingle;
     private ListView lvFoodsDrinks;
+
+    private String[] breakfastSetItems = {"1號餐", "2號餐", "3號餐"};
+    private String[] breakfastSingleItems = {"蛋餅", "三明治", "炒麵"};
+    private String[] breakfastDrinksItems = {"奶茶", "紅茶", "柳橙汁"};
 
 
     @Override
@@ -32,6 +38,19 @@ public class OrderActivity extends AppCompatActivity {
 
         ListViewAdapter adapter = new ListViewAdapter(this,lsFoods);
         lvFoods.setAdapter(adapter);
+
+        lvFoods.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String selectedItem = breakfastSetItems[position];
+
+                Intent intent = new Intent(OrderActivity.this, OrderDetailsActivity.class);
+                intent.putExtra("selectedItem", selectedItem);
+                startActivity(intent);
+            }
+        });
+
+
 
 
         List<FoodItem> lsFoodsSingle = new ArrayList<FoodItem>();
