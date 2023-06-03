@@ -63,6 +63,17 @@ public class OrderActivity extends AppCompatActivity {
         ListViewAdapter adapter_single = new ListViewAdapter(this,lsFoodsSingle);
         lvFoodsSingle.setAdapter(adapter_single);
 
+        lvFoodsSingle.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String selectedItem = breakfastSingleItems[position];
+
+                Intent intent = new Intent(OrderActivity.this, SingleDetailActivity.class);
+                intent.putExtra("selectedItem", selectedItem);
+                startActivity(intent);
+            }
+        });
+
         //
 
 
@@ -74,6 +85,17 @@ public class OrderActivity extends AppCompatActivity {
 
         ListViewAdapter adapter_drinks = new ListViewAdapter(this,lsFoodsDrinks);
         lvFoodsDrinks.setAdapter(adapter_drinks);
+
+        lvFoodsDrinks.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String selectedItem = breakfastDrinksItems[position];
+
+                Intent intent = new Intent(OrderActivity.this, DrinksDetailActivity.class);
+                intent.putExtra("selectedItem", selectedItem);
+                startActivity(intent);
+            }
+        });
 
         //
 
