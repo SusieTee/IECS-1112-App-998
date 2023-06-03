@@ -2,6 +2,7 @@ package fcu.app.signinapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ public class meal_list_item2 extends AppCompatActivity {
 
     private DatabaseHandler databaseHandler;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

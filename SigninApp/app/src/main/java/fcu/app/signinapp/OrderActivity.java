@@ -20,7 +20,7 @@ public class OrderActivity extends AppCompatActivity {
 
     private String[] breakfastSetItems = {"1號餐", "2號餐", "3號餐"};
     private String[] breakfastSingleItems = {"蛋餅", "三明治", "炒麵"};
-    private String[] breakfastDrinksItems = {"奶茶", "紅茶", "柳橙汁"};
+    private String[] breakfastDrinksItems = {"奶茶", "紅茶", "咖啡"};
 
 
     @Override
@@ -34,9 +34,9 @@ public class OrderActivity extends AppCompatActivity {
 
         //套餐ListView區段
         List<FoodItem> lsFoods = new ArrayList<FoodItem>();
-        lsFoods.add(new FoodItem(R.drawable.preview,"1號餐",110));
-        lsFoods.add(new FoodItem(R.drawable.preview,"2號餐",150));
-        lsFoods.add(new FoodItem(R.drawable.preview,"3號餐",90));
+        lsFoods.add(new FoodItem(R.drawable.set_01,"1號餐",110));
+        lsFoods.add(new FoodItem(R.drawable.set_02,"2號餐",150));
+        lsFoods.add(new FoodItem(R.drawable.set_03,"3號餐",90));
 
         ListViewAdapter adapter = new ListViewAdapter(this,lsFoods);
         lvFoods.setAdapter(adapter);
@@ -56,9 +56,9 @@ public class OrderActivity extends AppCompatActivity {
 
         //單點ListView區段
         List<FoodItem> lsFoodsSingle = new ArrayList<FoodItem>();
-        lsFoodsSingle.add(new FoodItem(R.drawable.preview,"蛋餅",20));
-        lsFoodsSingle.add(new FoodItem(R.drawable.preview,"三明治",25));
-        lsFoodsSingle.add(new FoodItem(R.drawable.preview,"炒麵",45));
+        lsFoodsSingle.add(new FoodItem(R.drawable.food_01,"蛋餅",20));
+        lsFoodsSingle.add(new FoodItem(R.drawable.food_02,"三明治",25));
+        lsFoodsSingle.add(new FoodItem(R.drawable.food_03,"炒麵",45));
 
         ListViewAdapter adapter_single = new ListViewAdapter(this,lsFoodsSingle);
         lvFoodsSingle.setAdapter(adapter_single);
@@ -68,9 +68,9 @@ public class OrderActivity extends AppCompatActivity {
 
         //飲料ListView區段
         List<FoodItem> lsFoodsDrinks = new ArrayList<FoodItem>();
-        lsFoodsDrinks.add(new FoodItem(R.drawable.preview,"奶茶",45));
-        lsFoodsDrinks.add(new FoodItem(R.drawable.preview,"紅茶",25));
-        lsFoodsDrinks.add(new FoodItem(R.drawable.preview,"柳橙汁",35));
+        lsFoodsDrinks.add(new FoodItem(R.drawable.drink_01,"奶茶",45));
+        lsFoodsDrinks.add(new FoodItem(R.drawable.drink_02,"紅茶",25));
+        lsFoodsDrinks.add(new FoodItem(R.drawable.drink_03,"咖啡",35));
 
         ListViewAdapter adapter_drinks = new ListViewAdapter(this,lsFoodsDrinks);
         lvFoodsDrinks.setAdapter(adapter_drinks);
