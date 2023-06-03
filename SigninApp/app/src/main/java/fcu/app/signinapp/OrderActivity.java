@@ -44,7 +44,7 @@ public class OrderActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String selectedItem = breakfastSetItems[position];
 
-                Intent intent = new Intent(OrderActivity.this, OrderDetailsActivity.class);
+                Intent intent = new Intent(OrderActivity.this, SetDetailActivity.class);
                 intent.putExtra("selectedItem", selectedItem);
                 startActivity(intent);
             }
