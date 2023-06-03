@@ -31,6 +31,8 @@ public class OrderActivity extends AppCompatActivity {
         lvFoodsSingle = findViewById(R.id.lv_foods_single);
         lvFoodsDrinks = findViewById(R.id.lv_foods_drinks);
 
+
+        //套餐ListView區段
         List<FoodItem> lsFoods = new ArrayList<FoodItem>();
         lsFoods.add(new FoodItem(R.drawable.preview,"1號餐",110));
         lsFoods.add(new FoodItem(R.drawable.preview,"2號餐",150));
@@ -49,10 +51,10 @@ public class OrderActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //
 
 
-
-
+        //單點ListView區段
         List<FoodItem> lsFoodsSingle = new ArrayList<FoodItem>();
         lsFoodsSingle.add(new FoodItem(R.drawable.preview,"蛋餅",20));
         lsFoodsSingle.add(new FoodItem(R.drawable.preview,"三明治",25));
@@ -61,8 +63,10 @@ public class OrderActivity extends AppCompatActivity {
         ListViewAdapter adapter_single = new ListViewAdapter(this,lsFoodsSingle);
         lvFoodsSingle.setAdapter(adapter_single);
 
+        //
 
 
+        //飲料ListView區段
         List<FoodItem> lsFoodsDrinks = new ArrayList<FoodItem>();
         lsFoodsDrinks.add(new FoodItem(R.drawable.preview,"奶茶",45));
         lsFoodsDrinks.add(new FoodItem(R.drawable.preview,"紅茶",25));
@@ -70,6 +74,8 @@ public class OrderActivity extends AppCompatActivity {
 
         ListViewAdapter adapter_drinks = new ListViewAdapter(this,lsFoodsDrinks);
         lvFoodsDrinks.setAdapter(adapter_drinks);
+
+        //
 
     }
 
