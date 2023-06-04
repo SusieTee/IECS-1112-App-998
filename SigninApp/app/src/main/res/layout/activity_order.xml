@@ -7,7 +7,7 @@
     tools:context=".OrderActivity">
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_order_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FF0000"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_order_order"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
@@ -26,11 +26,11 @@
         android:text="我要點餐"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
-        app:layout_constraintStart_toEndOf="@+id/button4" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_order_cart"
+        app:layout_constraintStart_toEndOf="@+id/btn_order_home" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btn_order_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
