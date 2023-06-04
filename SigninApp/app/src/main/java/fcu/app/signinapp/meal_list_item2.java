@@ -19,6 +19,8 @@ public class meal_list_item2 extends AppCompatActivity {
 
     private DatabaseHandler databaseHandler;
 
+    private SimpleCursorAdapter adapter;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,25 @@ public class meal_list_item2 extends AppCompatActivity {
 
         databaseHandler = new DatabaseHandler(this);
         databaseHandler.open();
+
+        adapter = new SimpleCursorAdapter(
+                this,
+                R.layout.meal_list_item1,
+                null,
+                new String[]{"name", "description", "price"},
+                new int[]{R.id.tv_meal_name, R.id.tv_meal_description, R.id.tv_meal_price},
+                0
+        );
+        lvMainMeals.setAdapter(adapter);
+
+        btnMealMangement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 打开管理菜单的界面
+                Intent intent = new Intent(meal_list_item2.this, SignInActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     protected void onResume() {
         super.onResume();
@@ -38,14 +59,13 @@ public class meal_list_item2 extends AppCompatActivity {
 
     private void showAllMeals() {
         Cursor cursor = databaseHandler.getAllMeals();
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                this,
-                R.layout.meal_list_item1,
-                cursor,
-                new String[]{"name", "description", "price"},
-                new int[]{R.id.tv_meal_name, R.id.tv_meal_description, R.id.tv_meal_price},
-                0
-        );
-        lvMainMeals.setAdapter(adapter);
+        adapter.changeCursor(cursor);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // 关闭数据库连接
+        databaseHandler.close();
     }
 }

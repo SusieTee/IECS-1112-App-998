@@ -315,7 +315,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="176dp"
-        android:backgroundTint="@android:color/holo_orange_dark"
+        android:backgroundTint="?attr/actionModeSplitBackground"
         android:fontFamily="sans-serif"
         android:text="加入購物車"
         android:textColor="#FFFFFF"

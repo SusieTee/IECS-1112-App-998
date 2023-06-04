@@ -72,36 +72,35 @@ public class SetDetailActivity extends AppCompatActivity {
 
                 @Override
                 public void onClick(View v) {
-                    if (v.getId() == R.id.cb_egg) {
+                    if (v == cbEgg) {
                         if (cbEgg.isChecked()) {
                             price += 10;
                         } else {
                             price -= 10;
                         }
-                    } else if (v.getId() == R.id.cb_sauce) {
+                    } else if (v == cbSauce) {
                         if (cbSauce.isChecked()) {
                             price += 5;
                         } else {
                             price -= 5;
                         }
-                    } else if (v.getId() == R.id.cb_chess) {
+                    } else if (v == cbChess) {
                         if (cbChess.isChecked()) {
                             price += 5;
                         } else {
                             price -= 5;
                         }
-                    } else if (v.getId() == R.id.btn_sub) {
+                    } else if (v == btnsub) {
                         if (amount <= 0) {
                             Toast.makeText(SetDetailActivity.this, "數量不可小於0", Toast.LENGTH_SHORT).show();
                         } else {
                             amount--;
                         }
-                    } else if (v.getId() == R.id.btn_add) {
+                    } else if (v == btnadd) {
                         amount++;
-                    } else if (v.getId() == R.id.btn_add_to_cart) {
+                    } else if (v == btnAddToCart) {
                         Toast.makeText(SetDetailActivity.this, "共" + total + "元，已加入購物車", Toast.LENGTH_SHORT).show();
                         databaseHandler.addMeal(foodName, "", total);
-
                         Cart.getInstance().addToCart(new CartItem(foodImg, foodName, amount, total));
                         finish();
                     }

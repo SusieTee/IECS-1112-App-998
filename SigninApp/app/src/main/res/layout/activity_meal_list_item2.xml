@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:text="小計:"
+                android:text="總共："
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -60,7 +60,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginEnd="40dp"
-                android:backgroundTint="@android:color/holo_orange_dark"
+                android:backgroundTint="?attr/actionModeSplitBackground"
                 android:fontFamily="sans-serif-condensed-light"
                 android:text="結帳"
                 android:textColor="#FFFFFF"
