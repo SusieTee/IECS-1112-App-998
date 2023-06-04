@@ -6,15 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".meal_list_item2">
 
+    <TextView
+        android:id="@+id/carttitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6750A3"
+        android:text="購物車"
+        android:textAlignment="center"
+        android:textColor="#FBFBFB"
+        android:textSize="34sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
     <ListView
         android:id="@+id/lv_main_meals"
-        android:layout_width="0dp"
-        android:layout_height="567dp"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+         />
 
     <FrameLayout
         android:id="@+id/frameLayout"

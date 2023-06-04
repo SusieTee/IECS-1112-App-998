@@ -44,7 +44,7 @@ public class DatabaseHandler {
 
     public Cursor getAllMeals() {
         Cursor cursor = database.rawQuery("SELECT * FROM Meals", null);
-        Toast.makeText(activity, cursor.getCount() + "is added", Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity, cursor.getCount() + " item is added", Toast.LENGTH_SHORT).show();
 
         return cursor;
     }

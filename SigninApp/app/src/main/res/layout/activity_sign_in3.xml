@@ -21,7 +21,7 @@
 
     <EditText
         android:id="@+id/et_signin_password"
-        android:layout_width="0dp"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"

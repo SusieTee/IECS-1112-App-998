@@ -28,11 +28,11 @@
 
                 <ImageView
                     android:id="@+id/im_food"
-                    android:layout_width="346dp"
-                    android:layout_height="166dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
                     android:contentDescription="@string/app_name"
-                    android:foreground="@drawable/food_01"
-                    app:srcCompat="@drawable/food_01" />
+                     />
 
                 <TextView
                     android:id="@+id/tv_title"
@@ -277,8 +277,8 @@
 
     <TextView
         android:id="@+id/tv_total"
-        android:layout_width="51dp"
-        android:layout_height="85dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
         android:layout_weight="1"
@@ -287,15 +287,14 @@
         android:text="20"
         android:textColor="#000000"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/btn_add_to_cart"
         app:layout_constraintStart_toEndOf="@+id/tv_money"
-        app:layout_constraintTop_toBottomOf="@+id/sv_detail"
-        app:layout_constraintVertical_bias="0.912" />
+        app:layout_constraintTop_toTopOf="@+id/btn_add_to_cart" />
 
     <TextView
         android:id="@+id/tv_money"
-        android:layout_width="10dp"
-        android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="52dp"
         android:layout_weight="1"
@@ -304,26 +303,25 @@
         android:text="$"
         android:textColor="#000000"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/btn_add_to_cart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_detail"
-        app:layout_constraintVertical_bias="0.914" />
+        app:layout_constraintTop_toTopOf="@+id/btn_add_to_cart" />
 
     <Button
         android:id="@+id/btn_add_to_cart"
         android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="176dp"
+        android:layout_marginEnd="52dp"
         android:backgroundTint="?attr/actionModeSplitBackground"
         android:fontFamily="sans-serif"
         android:text="加入購物車"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:cornerRadius="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/sv_detail"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_total"
-        app:layout_constraintTop_toBottomOf="@+id/sv_detail" />
+        app:layout_constraintVertical_bias="0.914"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

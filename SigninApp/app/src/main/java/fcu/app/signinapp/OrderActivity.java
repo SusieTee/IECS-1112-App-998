@@ -45,10 +45,13 @@ public class OrderActivity extends AppCompatActivity {
         lvFoods.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                String selectedItem = breakfastSetItems[position];
+                FoodItem foodItem = lsFoods.get(position);
 
                 Intent intent = new Intent(OrderActivity.this, SetDetailActivity.class);
-                intent.putExtra("selectedItem", selectedItem);
+                intent.putExtra("isDrink", false);
+                intent.putExtra("food_img", foodItem.getFood_img());
+                intent.putExtra("food_name", foodItem.getFood_name());
+                intent.putExtra("food_price", foodItem.getFood_price());
                 startActivity(intent);
             }
         });
@@ -67,10 +70,13 @@ public class OrderActivity extends AppCompatActivity {
         lvFoodsSingle.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                String selectedItem = breakfastSingleItems[position];
+                FoodItem foodItemSingle = lsFoodsSingle.get(position);
 
-                Intent intent = new Intent(OrderActivity.this, SingleDetailActivity.class);
-                intent.putExtra("selectedItem", selectedItem);
+                Intent intent = new Intent(OrderActivity.this, SetDetailActivity.class);
+                intent.putExtra("isDrink", false);
+                intent.putExtra("food_img", foodItemSingle.getFood_img());
+                intent.putExtra("food_name", foodItemSingle.getFood_name());
+                intent.putExtra("food_price", foodItemSingle.getFood_price());
                 startActivity(intent);
             }
         });
@@ -80,8 +86,8 @@ public class OrderActivity extends AppCompatActivity {
 
         //飲料ListView區段
         List<FoodItem> lsFoodsDrinks = new ArrayList<FoodItem>();
-        lsFoodsDrinks.add(new FoodItem(R.drawable.drink_01,"奶茶",45));
-        lsFoodsDrinks.add(new FoodItem(R.drawable.drink_02,"紅茶",25));
+        lsFoodsDrinks.add(new FoodItem(R.drawable.drink_02,"奶茶",45));
+        lsFoodsDrinks.add(new FoodItem(R.drawable.drink_01,"紅茶",25));
         lsFoodsDrinks.add(new FoodItem(R.drawable.drink_03,"咖啡",35));
 
         ListViewAdapter adapter_drinks = new ListViewAdapter(this,lsFoodsDrinks);
@@ -90,10 +96,13 @@ public class OrderActivity extends AppCompatActivity {
         lvFoodsDrinks.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                String selectedItem = breakfastDrinksItems[position];
+                FoodItem foodDrink = lsFoodsDrinks.get(position);
 
-                Intent intent = new Intent(OrderActivity.this, DrinksDetailActivity.class);
-                intent.putExtra("selectedItem", selectedItem);
+                Intent intent = new Intent(OrderActivity.this, SetDetailActivity.class);
+                intent.putExtra("isDrink", true);
+                intent.putExtra("food_img", foodDrink.getFood_img());
+                intent.putExtra("food_name", foodDrink.getFood_name());
+                intent.putExtra("food_price", foodDrink.getFood_price());
                 startActivity(intent);
             }
         });
