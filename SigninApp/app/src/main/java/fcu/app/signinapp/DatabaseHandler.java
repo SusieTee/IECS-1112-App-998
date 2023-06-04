@@ -42,6 +42,9 @@ public class DatabaseHandler {
         database.insert("Meals", null, values);
     }
 
+    public void deleteTable(){
+        database.delete("Meals", null, null);
+    }
     public Cursor getAllMeals() {
         Cursor cursor = database.rawQuery("SELECT * FROM Meals", null);
         Toast.makeText(activity, cursor.getCount() + " item is added", Toast.LENGTH_SHORT).show();

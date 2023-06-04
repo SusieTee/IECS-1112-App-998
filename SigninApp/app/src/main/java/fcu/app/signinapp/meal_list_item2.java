@@ -47,6 +47,7 @@ public class meal_list_item2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 打开管理菜单的界面
+                databaseHandler.deleteTable();
                 Intent intent = new Intent(meal_list_item2.this, SignInActivity.class);
                 startActivity(intent);
             }
