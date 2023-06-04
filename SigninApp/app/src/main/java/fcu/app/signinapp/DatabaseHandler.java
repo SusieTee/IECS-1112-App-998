@@ -24,11 +24,11 @@ public class DatabaseHandler {
             "description TEXT, " +
             "price INTEGER NOT NULL)";
 
-    public DatabaseHandler(AppCompatActivity activity){
+    public DatabaseHandler(AppCompatActivity activity) {
         this.activity = activity;
     }
 
-    public void open(){
+    public void open() {
         database = activity.openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
         database.execSQL(CREATE_MEAL_TABLE);
 
@@ -50,4 +50,9 @@ public class DatabaseHandler {
     }
 
 
+    public void close() {
+        if (database != null && database.isOpen()) {
+            database.close();
+        }
+    }
 }

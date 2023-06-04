@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class SetDetailActivity extends AppCompatActivity {
 
-
+    private DatabaseHandler databaseHandler;
     private ImageView imFood;
     private TextView tvTitle;
     private CheckBox cbEgg;
@@ -37,14 +37,10 @@ public class SetDetailActivity extends AppCompatActivity {
         }
 
         Bundle extras = getIntent().getExtras();
-        Intent intent = getIntent();
-        int foodImg = ((Intent) intent).getIntExtra("food_img", 0);
-        String foodName = getIntent().getStringExtra("food_name");
-        String foodPrice = getIntent().getStringExtra("food_price");
-        if (foodPrice != null) {
-            String priceString = foodPrice.substring(1);
-            // 其他相关操作
-        }
+        //Intent intent = getIntent();
+        int foodImg = extras.getInt("food_img");
+        String foodName = extras.getString("food_name");
+        String foodPrice = extras.getString("food_price");
 
 
         imFood = findViewById(R.id.im_food);
@@ -57,6 +53,9 @@ public class SetDetailActivity extends AppCompatActivity {
         tvAmountNumber = findViewById(R.id.tv_amount_number);
         tvTotal = findViewById(R.id.tv_total);
         btnAddToCart = findViewById(R.id.btn_add_to_cart);
+
+        databaseHandler = new DatabaseHandler(this);
+        databaseHandler.open();
 
         tvTitle.setText(foodName);
         if (foodPrice != null) {
@@ -73,7 +72,6 @@ public class SetDetailActivity extends AppCompatActivity {
 
                 @Override
                 public void onClick(View v) {
-
                     if (v.getId() == R.id.cb_egg) {
                         if (cbEgg.isChecked()) {
                             price += 10;
@@ -102,6 +100,7 @@ public class SetDetailActivity extends AppCompatActivity {
                         amount++;
                     } else if (v.getId() == R.id.btn_add_to_cart) {
                         Toast.makeText(SetDetailActivity.this, "共" + total + "元，已加入購物車", Toast.LENGTH_SHORT).show();
+                        databaseHandler.addMeal(foodName, "", total);
 
                         Cart.getInstance().addToCart(new CartItem(foodImg, foodName, amount, total));
                         finish();
@@ -109,8 +108,10 @@ public class SetDetailActivity extends AppCompatActivity {
                     total = price * amount;
                     tvAmountNumber.setText(String.valueOf(amount));
                     tvTotal.setText(String.valueOf(total));
+
                 }
             };
+
             cbEgg.setOnClickListener(onClickListener);
             cbSauce.setOnClickListener(onClickListener);
             cbChess.setOnClickListener(onClickListener);
@@ -118,5 +119,10 @@ public class SetDetailActivity extends AppCompatActivity {
             btnadd.setOnClickListener(onClickListener);
             btnAddToCart.setOnClickListener(onClickListener);
         }
+
+        }
+        protected void onDestroy(){
+            super.onDestroy();
+            databaseHandler.close();
     }
 }

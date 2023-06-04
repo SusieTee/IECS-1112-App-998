@@ -35,6 +35,7 @@ public class meal_list_item2 extends AppCompatActivity {
         super.onResume();
         showAllMeals();
     }
+
     private void showAllMeals() {
         Cursor cursor = databaseHandler.getAllMeals();
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
