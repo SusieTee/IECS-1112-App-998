@@ -2,6 +2,7 @@ package fcu.app.signinapp;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -48,9 +49,19 @@ public class DatabaseHandler {
     public Cursor getAllMeals() {
         Cursor cursor = database.rawQuery("SELECT * FROM Meals", null);
         Toast.makeText(activity, cursor.getCount() + " item is added", Toast.LENGTH_SHORT).show();
-
         return cursor;
     }
+
+    public int getSum() {
+        int total = 0;
+        Cursor cursor = database.rawQuery("SELECT sum(price)FROM Meals", null);
+        if(cursor.moveToFirst()){
+            total = cursor.getInt(0);
+        }
+        return total;
+    }
+
+
 
 
     public void close() {

@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class meal_list_item2 extends AppCompatActivity {
 
@@ -20,13 +22,15 @@ public class meal_list_item2 extends AppCompatActivity {
     private DatabaseHandler databaseHandler;
 
     private SimpleCursorAdapter adapter;
+    private TextView totalAmount;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "Range"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_list_item2);
-
+        int total = 0;
+        totalAmount =findViewById(R.id.tv_total);
         btnMealMangement = findViewById(R.id.btn_meal_management);
         lvMainMeals = findViewById(R.id.lv_main_meals);
 
@@ -43,6 +47,7 @@ public class meal_list_item2 extends AppCompatActivity {
         );
         lvMainMeals.setAdapter(adapter);
 
+
         btnMealMangement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,14 +57,27 @@ public class meal_list_item2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        /*
+        Cursor cursor = databaseHandler.getAllMeals();
+        for(int k=0;k<=cursor.getCount();k++){
+            total += (int) Integer.parseInt(String.valueOf(cursor.getColumnIndex("price")));
+            System.out.println(total);
+        }
+        totalAmount.setText(""+ total);
+        */
+
+        total = databaseHandler.getSum();
+        totalAmount.setText(""+total);
     }
+
     protected void onResume() {
         super.onResume();
         showAllMeals();
     }
 
     private void showAllMeals() {
-        Cursor cursor = databaseHandler.getAllMeals();
+         Cursor cursor = databaseHandler.getAllMeals();
         adapter.changeCursor(cursor);
     }
 
