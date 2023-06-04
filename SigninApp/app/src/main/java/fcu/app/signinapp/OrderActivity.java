@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.content.Intent; //跳轉
@@ -23,6 +24,9 @@ public class OrderActivity extends AppCompatActivity {
     private String[] breakfastSingleItems = {"蛋餅", "三明治", "炒麵"};
     private String[] breakfastDrinksItems = {"奶茶", "紅茶", "咖啡"};
 
+    private Button home;
+    private Button cart;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,27 @@ public class OrderActivity extends AppCompatActivity {
         lvFoodsSingle = findViewById(R.id.lv_foods_single);
         lvFoodsDrinks = findViewById(R.id.lv_foods_drinks);
 
+        home = findViewById(R.id.btn_order_home);
+        cart = findViewById(R.id.btn_order_cart);
+        //回到首頁
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OrderActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        //
+
+        //前往購物車
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OrderActivity.this, meal_list_item2.class);
+                startActivity(intent);
+            }
+        });
+        //
 
         //套餐ListView區段
         List<FoodItem> lsFoods = new ArrayList<FoodItem>();
