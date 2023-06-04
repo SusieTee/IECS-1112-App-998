@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
   private Button btnSignOut;
 
+  private Button order;
+  private Button cart;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -38,7 +40,27 @@ public class MainActivity extends AppCompatActivity {
     };
     btnSignOut.setOnClickListener(onClickListener);
 
+    //回到首頁
+    cart = findViewById(R.id.btn_home_cart);
+    order = findViewById(R.id.btn_home_order);
+    cart.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, meal_list_item2.class);
+        startActivity(intent);
+      }
+    });
+    //
 
+    //前往購物車
+    order.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+        startActivity(intent);
+      }
+    });
+    //
   }
 
   @Override

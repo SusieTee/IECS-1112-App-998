@@ -24,6 +24,9 @@ public class meal_list_item2 extends AppCompatActivity {
     private SimpleCursorAdapter adapter;
     private TextView totalAmount;
 
+    private Button home;
+    private Button order;
+
     @SuppressLint({"MissingInflatedId", "Range"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class meal_list_item2 extends AppCompatActivity {
         totalAmount =findViewById(R.id.tv_total);
         btnMealMangement = findViewById(R.id.btn_meal_management);
         lvMainMeals = findViewById(R.id.lv_main_meals);
+
 
         databaseHandler = new DatabaseHandler(this);
         databaseHandler.open();
@@ -69,6 +73,30 @@ public class meal_list_item2 extends AppCompatActivity {
 
         total = databaseHandler.getSum();
         totalAmount.setText(""+total);
+
+
+
+        //回到首頁
+        home = findViewById(R.id.btn_cart_home);
+        order = findViewById(R.id.btn_cart_order);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(meal_list_item2.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        //
+
+        //前往購物車
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(meal_list_item2.this, OrderActivity.class);
+                startActivity(intent);
+            }
+        });
+        //
     }
 
     protected void onResume() {
