@@ -1,38 +1,38 @@
 package fcu.app.signinapp;
 
 public class FoodItem {
+    private int food_img;
+    private String food_name;
+    private int food_price;
 
-    private int imageID;
-    private String foodName;
-    private int foodPrice;
-
-    public FoodItem(int imageID, String foodName, int foodPrice) {
-        this.imageID = imageID;
-        this.foodName = foodName;
-        this.foodPrice = foodPrice;
+    public FoodItem(int food_img, String food_name, int food_price) {
+        this.food_img = food_img;
+        this.food_name = food_name;
+        this.food_price = food_price;
     }
 
-    public int getImageID() {
-        return imageID;
+    public int getFood_img() {
+        return food_img;
     }
 
-    public void setImageID(int imageID) {
-        this.imageID = imageID;
+    public void setFood_img(int food_img) {
+        this.food_img = food_img;
     }
 
-    public String getFoodName() {
-        return foodName;
+    public String getFood_name() {
+        return food_name;
     }
 
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
+    public void setFood_name(String food_name) {
+        this.food_name = food_name;
     }
 
-    public int getFoodPrice() {
-        return foodPrice;
+    public int getFood_price() {
+        return food_price;
     }
 
-    public void setFoodPrice(int foodPrice) {
-        this.foodPrice = foodPrice;
+    public void setFood_price(String food_price) {
+        this.food_price = Integer.parseInt(food_price);
     }
+
 }

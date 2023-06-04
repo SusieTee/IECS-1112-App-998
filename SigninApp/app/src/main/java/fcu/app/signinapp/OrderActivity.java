@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.content.Intent; //跳轉
 import android.widget.AdapterView;//適配器
@@ -39,7 +40,7 @@ public class OrderActivity extends AppCompatActivity {
         lsFoods.add(new FoodItem(R.drawable.set_03,"3號餐",90));
 
         ListViewAdapter adapter = new ListViewAdapter(this,lsFoods);
-        lvFoods.setAdapter(adapter);
+        lvFoods.setAdapter((ListAdapter) adapter);
 
         lvFoods.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
@@ -61,7 +62,7 @@ public class OrderActivity extends AppCompatActivity {
         lsFoodsSingle.add(new FoodItem(R.drawable.food_03,"炒麵",45));
 
         ListViewAdapter adapter_single = new ListViewAdapter(this,lsFoodsSingle);
-        lvFoodsSingle.setAdapter(adapter_single);
+        lvFoodsSingle.setAdapter((ListAdapter) adapter_single);
 
         lvFoodsSingle.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
@@ -84,7 +85,7 @@ public class OrderActivity extends AppCompatActivity {
         lsFoodsDrinks.add(new FoodItem(R.drawable.drink_03,"咖啡",35));
 
         ListViewAdapter adapter_drinks = new ListViewAdapter(this,lsFoodsDrinks);
-        lvFoodsDrinks.setAdapter(adapter_drinks);
+        lvFoodsDrinks.setAdapter((ListAdapter) adapter_drinks);
 
         lvFoodsDrinks.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override

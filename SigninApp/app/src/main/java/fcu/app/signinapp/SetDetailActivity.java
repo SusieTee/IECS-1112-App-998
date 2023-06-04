@@ -3,6 +3,7 @@ package fcu.app.signinapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,9 +37,15 @@ public class SetDetailActivity extends AppCompatActivity {
         }
 
         Bundle extras = getIntent().getExtras();
-        int foodImg = extras.getInt("food_img");
-        String foodName = extras.getString("food_name");
-        String foodPrice = extras.getString("food_price");
+        Intent intent = getIntent();
+        int foodImg = ((Intent) intent).getIntExtra("food_img", 0);
+        String foodName = getIntent().getStringExtra("food_name");
+        String foodPrice = getIntent().getStringExtra("food_price");
+        if (foodPrice != null) {
+            String priceString = foodPrice.substring(1);
+            // 其他相关操作
+        }
+
 
         imFood = findViewById(R.id.im_food);
         tvTitle = findViewById(R.id.tv_title);
@@ -52,18 +59,20 @@ public class SetDetailActivity extends AppCompatActivity {
         btnAddToCart = findViewById(R.id.btn_add_to_cart);
 
         tvTitle.setText(foodName);
-        String priceString = foodPrice.substring(1);
-        tvTotal.setText(priceString);
+        if (foodPrice != null) {
+            String priceString = foodPrice.substring(1);
 
-        View.OnClickListener onClickListener = new View.OnClickListener() {
+            tvTotal.setText(priceString);
 
-            int amount = Integer.parseInt(tvAmountNumber.getText().toString());
-            int total = Integer.parseInt(tvTotal.getText().toString());
-            int price = Integer.parseInt(priceString);
+            View.OnClickListener onClickListener = new View.OnClickListener() {
+
+                int amount = Integer.parseInt(tvAmountNumber.getText().toString());
+                int total = Integer.parseInt(tvTotal.getText().toString());
+                int price = Integer.parseInt(priceString);
 
 
-            @Override
-            public void onClick(View v) {
+                @Override
+                public void onClick(View v) {
 
                     if (v.getId() == R.id.cb_egg) {
                         if (cbEgg.isChecked()) {
@@ -93,19 +102,21 @@ public class SetDetailActivity extends AppCompatActivity {
                         amount++;
                     } else if (v.getId() == R.id.btn_add_to_cart) {
                         Toast.makeText(SetDetailActivity.this, "共" + total + "元，已加入購物車", Toast.LENGTH_SHORT).show();
+
                         Cart.getInstance().addToCart(new CartItem(foodImg, foodName, amount, total));
                         finish();
                     }
-                total = price * amount;
-                tvAmountNumber.setText(String.valueOf(amount));
-                tvTotal.setText(String.valueOf(total));
-            }
-        };
-        cbEgg.setOnClickListener(onClickListener);
-        cbSauce.setOnClickListener(onClickListener);
-        cbChess.setOnClickListener(onClickListener);
-        btnsub.setOnClickListener(onClickListener);
-        btnadd.setOnClickListener(onClickListener);
-        btnAddToCart.setOnClickListener(onClickListener);
+                    total = price * amount;
+                    tvAmountNumber.setText(String.valueOf(amount));
+                    tvTotal.setText(String.valueOf(total));
+                }
+            };
+            cbEgg.setOnClickListener(onClickListener);
+            cbSauce.setOnClickListener(onClickListener);
+            cbChess.setOnClickListener(onClickListener);
+            btnsub.setOnClickListener(onClickListener);
+            btnadd.setOnClickListener(onClickListener);
+            btnAddToCart.setOnClickListener(onClickListener);
+        }
     }
 }
